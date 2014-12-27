@@ -1,6 +1,5 @@
 name = "Mojolicious-Plugin-Angular-MaterialDesign"
-# badges = ["travis"]
+badges = ["travis"]
 authority="cpan:MUDLER"
 
-module_maker="ModuleBuildTiny"
-
+module_maker="ExtUtilsMakeMaker"

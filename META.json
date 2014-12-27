@@ -1,5 +1,5 @@
 {
-   "abstract" : "It's new $module",
+   "abstract" : "Mojolicious + https://material.angularjs.org/",
    "author" : [
       "mudler <mudler@dark-lab.net>"
    ],
@@ -28,7 +28,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "Module::Build::Tiny" : "0.035"
+            "ExtUtils::MakeMaker" : "6.64"
          }
       },
       "develop" : {
@@ -52,6 +52,17 @@
       }
    },
    "release_status" : "unstable",
-   "version" : "0.01",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/mudler/Mojolicious-Plugin-Angular-MaterialDesign/issues"
+      },
+      "homepage" : "https://github.com/mudler/Mojolicious-Plugin-Angular-MaterialDesign",
+      "repository" : {
+         "type" : "git",
+         "url" : "git://github.com/mudler/Mojolicious-Plugin-Angular-MaterialDesign.git",
+         "web" : "https://github.com/mudler/Mojolicious-Plugin-Angular-MaterialDesign"
+      }
+   },
+   "version" : "0.6",
    "x_authority" : "cpan:MUDLER"
 }
