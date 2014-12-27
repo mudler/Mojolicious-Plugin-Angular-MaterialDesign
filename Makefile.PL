@@ -27,10 +27,10 @@ if ($ExtUtils::MakeMaker::VERSION >= 6.64) {
 
     $args{CONFIGURE_REQUIRES} = {"ExtUtils::MakeMaker" => "6.64"};
     $args{BUILD_REQUIRES}     = {};
-    $args{TEST_REQUIRES}      = {"Test::More" => "0.98"};
-    $args{PREREQ_PM}          = {"perl" => "5.008001"};
+    $args{TEST_REQUIRES}      = {"Mojolicious" => 0,"Test::Mojo" => 0,"Test::More" => "0.98"};
+    $args{PREREQ_PM}          = {"Module::Build" => "0.35","Mojo::Base" => 0,"perl" => "5.008001"};
 } else {
-    $args{PREREQ_PM}          = {"ExtUtils::MakeMaker" => "6.64","Test::More" => "0.98","perl" => "5.008001"};
+    $args{PREREQ_PM}          = {"ExtUtils::MakeMaker" => "6.64","Module::Build" => "0.35","Mojo::Base" => 0,"Mojolicious" => 0,"Test::Mojo" => 0,"Test::More" => "0.98","perl" => "5.008001"};
 }
 
 if ($ExtUtils::MakeMaker::VERSION >= 6.57_01) {
@@ -40,6 +40,6 @@ if ($ExtUtils::MakeMaker::VERSION >= 6.57_01) {
 WriteMakefile(
     NAME     => 'Mojolicious::Plugin::Angular::MaterialDesign',
     DISTNAME => 'Mojolicious-Plugin-Angular-MaterialDesign',
-    VERSION  => '0.6',
+    VERSION  => '0.601',
     %args,
 );
