@@ -103,7 +103,7 @@ Loads the plugin and register the static paths that includes the css and js.
 
 =head1 CREDITS
 
-L<angular/material|https://github.com/angular/material> <contributors|https://github.com/angular/material/graphs/contributors>
+L<angular/material|https://github.com/angular/material> L<contributors|https://github.com/angular/material/graphs/contributors>
 
 =head1 LICENSE
 

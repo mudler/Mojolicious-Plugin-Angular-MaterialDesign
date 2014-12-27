@@ -53,7 +53,7 @@ Loads the plugin and register the static paths that includes the css and js.
 
 # CREDITS
 
-[angular/material](https://github.com/angular/material) <contributors|https://github.com/angular/material/graphs/contributors>
+[angular/material](https://github.com/angular/material) [contributors](https://github.com/angular/material/graphs/contributors)
 
 # LICENSE
 
