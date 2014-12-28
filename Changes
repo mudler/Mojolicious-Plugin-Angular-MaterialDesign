@@ -2,6 +2,8 @@ Revision history for Perl extension Mojolicious-Plugin-Angular-MaterialDesign
 
 {{$NEXT}}
 
+    - cleanup
+
 0.601 2014-12-27T13:04:09Z
 
     - minor fixes

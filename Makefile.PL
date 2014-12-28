@@ -40,6 +40,6 @@ if ($ExtUtils::MakeMaker::VERSION >= 6.57_01) {
 WriteMakefile(
     NAME     => 'Mojolicious::Plugin::Angular::MaterialDesign',
     DISTNAME => 'Mojolicious-Plugin-Angular-MaterialDesign',
-    VERSION  => '0.601',
+    VERSION  => '0.602',
     %args,
 );

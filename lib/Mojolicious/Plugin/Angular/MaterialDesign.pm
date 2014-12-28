@@ -7,7 +7,7 @@ use Mojo::Base 'Mojolicious::Plugin';
 use File::Spec::Functions 'catdir';
 use Cwd ();
 
-our $VERSION = '0.601';
+our $VERSION = '0.602';
 
 my @DEFAULT_CSS_FILES = qw( angular-material.min.css );
 my @DEFAULT_JS_FILES  = qw( angular-material.min.js);
