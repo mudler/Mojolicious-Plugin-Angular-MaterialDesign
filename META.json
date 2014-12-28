@@ -42,8 +42,8 @@
       },
       "runtime" : {
          "requires" : {
-            "Module::Build" : "0.35",
             "Mojo::Base" : "0",
+            "Mojolicious::Plugin::AssetPack" : "0",
             "perl" : "5.008001"
          }
       },
@@ -67,6 +67,6 @@
          "web" : "https://github.com/mudler/Mojolicious-Plugin-Angular-MaterialDesign"
       }
    },
-   "version" : "0.602",
+   "version" : "0.603",
    "x_authority" : "cpan:MUDLER"
 }

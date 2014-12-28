@@ -4,10 +4,11 @@ use strict;
 use warnings;
 
 use Mojo::Base 'Mojolicious::Plugin';
+use Mojolicious::Plugin::AssetPack;
 use File::Spec::Functions 'catdir';
 use Cwd ();
 
-our $VERSION = '0.602';
+our $VERSION = '0.603';
 
 my @DEFAULT_CSS_FILES = qw( angular-material.min.css );
 my @DEFAULT_JS_FILES  = qw( angular-material.min.js);
