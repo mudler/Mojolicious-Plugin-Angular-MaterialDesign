@@ -5,7 +5,7 @@ use Test::More;
 
 $ENV{PATH} = '/dev/null';    # make sure sass is not found
 
-my $app = Mojolicious->new( mode => 'production' );
+my $app = Mojolicious->new( mode => 'development' );
 my $t = Test::Mojo->new($app);
 
 $app->plugin('Angular::MaterialDesign');
