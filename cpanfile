@@ -1,5 +1,6 @@
 requires 'Mojo::Base';
 requires 'Mojolicious::Plugin::AssetPack';
+requires 'Mojolicious::Plugin::AssetPack::Backcompat';
 requires 'perl', '5.008001';
 
 on configure => sub {
