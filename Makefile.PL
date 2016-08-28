@@ -9,37 +9,58 @@ use strict;
 use ExtUtils::MakeMaker;
 
 
-use File::Copy;
-
-print "cp META.json MYMETA.json\n";
-copy("META.json","MYMETA.json") or die "Copy failed(META.json): $!";
-
-if (-f 'META.yml') {
-    print "cp META.yml MYMETA.yml\n";
-    copy("META.yml","MYMETA.yml") or die "Copy failed(META.yml): $!";
-} else {
-    print "There is no META.yml... You may install this module from the repository...\n";
-}
-
-my %args;
-if ($ExtUtils::MakeMaker::VERSION >= 6.64) {
-    # *_REQUIRES was supported.
-
-    $args{CONFIGURE_REQUIRES} = {"ExtUtils::MakeMaker" => "6.64"};
-    $args{BUILD_REQUIRES}     = {};
-    $args{TEST_REQUIRES}      = {"Mojolicious" => 0,"Test::Mojo" => 0,"Test::More" => "0.98"};
-    $args{PREREQ_PM}          = {"Mojo::Base" => 0,"Mojolicious::Plugin::AssetPack" => 0,"perl" => "5.008001"};
-} else {
-    $args{PREREQ_PM}          = {"ExtUtils::MakeMaker" => "6.64","Mojo::Base" => 0,"Mojolicious" => 0,"Mojolicious::Plugin::AssetPack" => 0,"Test::Mojo" => 0,"Test::More" => "0.98","perl" => "5.008001"};
-}
-
-if ($ExtUtils::MakeMaker::VERSION >= 6.57_01) {
-    $args{NO_MYMETA} = 1;
-}
-
-WriteMakefile(
+my %WriteMakefileArgs = (
     NAME     => 'Mojolicious::Plugin::Angular::MaterialDesign',
     DISTNAME => 'Mojolicious-Plugin-Angular-MaterialDesign',
-    VERSION  => '0.603',
-    %args,
+    VERSION  => '1.1.0',
+    EXE_FILES => [glob('script/*'), glob('bin/*')],
+    CONFIGURE_REQUIRES => {
+  "ExtUtils::MakeMaker" => 0
+}
+,
+    BUILD_REQUIRES     => {}
+,
+    TEST_REQUIRES      => {
+  "Mojolicious" => 0,
+  "Test::Mojo" => 0,
+  "Test::More" => "0.98"
+}
+,
+    PREREQ_PM          => {
+  "Mojo::Base" => 0,
+  "Mojolicious::Plugin::AssetPack" => 0,
+  "Mojolicious::Plugin::AssetPack::Backcompat" => 0,
+  "perl" => "5.008001"
+}
+,
 );
+
+my $full_prereqs = {
+  "ExtUtils::MakeMaker" => 0,
+  "Mojo::Base" => 0,
+  "Mojolicious" => 0,
+  "Mojolicious::Plugin::AssetPack" => 0,
+  "Mojolicious::Plugin::AssetPack::Backcompat" => 0,
+  "Test::Mojo" => 0,
+  "Test::More" => "0.98",
+  "perl" => "5.008001"
+}
+;
+
+unless (eval { ExtUtils::MakeMaker->VERSION(6.63_03) }) {
+    delete $WriteMakefileArgs{TEST_REQUIRES};
+    delete $WriteMakefileArgs{BUILD_REQUIRES};
+    $WriteMakefileArgs{PREREQ_PM} = $full_prereqs;
+}
+
+unless (eval { ExtUtils::MakeMaker->VERSION(6.52) }) {
+    delete $WriteMakefileArgs{CONFIGURE_REQUIRES};
+}
+
+unless (eval { ExtUtils::MakeMaker->VERSION(6.57_01) }) {
+    use File::Copy;
+    copy('META.yml', 'MYMETA.yml')   or warn "META.yml: $!";
+    copy('META.json', 'MYMETA.json') or warn "META.json: $!";
+}
+
+WriteMakefile(%WriteMakefileArgs);

@@ -4,7 +4,7 @@
       "mudler <mudler@dark-lab.net>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Minilla/v2.2.1, CPAN::Meta::Converter version 2.142060",
+   "generated_by" : "Minilla/v2.5.0, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
@@ -28,7 +28,7 @@
    "prereqs" : {
       "configure" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : "6.64"
+            "ExtUtils::MakeMaker" : "0"
          }
       },
       "develop" : {
@@ -44,6 +44,7 @@
          "requires" : {
             "Mojo::Base" : "0",
             "Mojolicious::Plugin::AssetPack" : "0",
+            "Mojolicious::Plugin::AssetPack::Backcompat" : "0",
             "perl" : "5.008001"
          }
       },
@@ -67,6 +68,9 @@
          "web" : "https://github.com/mudler/Mojolicious-Plugin-Angular-MaterialDesign"
       }
    },
-   "version" : "0.603",
-   "x_authority" : "cpan:MUDLER"
+   "version" : "1.1.0",
+   "x_authority" : "cpan:MUDLER",
+   "x_contributors" : [
+      "mudler <mudler@sabayon.org>"
+   ]
 }
