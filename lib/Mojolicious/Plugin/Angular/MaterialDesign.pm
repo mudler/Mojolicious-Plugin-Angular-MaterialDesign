@@ -5,7 +5,6 @@ use warnings;
 
 use Mojo::Base 'Mojolicious::Plugin';
 use Mojolicious::Plugin::AssetPack;
-use File::Spec::Functions 'catdir';
 use Cwd ();
 
 our $VERSION = '1.1.0';
@@ -23,28 +22,29 @@ sub asset_path {
 sub register {
     my ( $self, $app, $config ) = @_;
 
-    $app->plugin('AssetPack') unless eval { $app->asset };
+    unless (eval { $app->asset }) {
+      $app->plugin( AssetPack => {
+        pipes => [ 'Css', 'JavaScript' ]
+      } );
+    }
 
     $config->{css} ||= [@DEFAULT_CSS_FILES];
     $config->{js}  ||= [@DEFAULT_JS_FILES];
     $config->{jquery} //= 1;
 
-    push @{ $app->static->paths }, $self->asset_path;
+    push @{ $app->asset->store->paths }, $self->asset_path;
 
-    # TODO: 'bootstrap_resources.scss'
-    if ( @{ $config->{css} } ) {
-        $app->asset( 'materialdesign.css' => map {"/css/$_"}
-                @{ $config->{css} } );
-    }
+    $app->asset->process(
+      'materialdesign.css' => map {"/css/$_"} @{ $config->{css} }
+    );
 
-    if ( @{ $config->{js} } ) {
-        $app->asset( 'materialdesign.js' => map {"/js/$_"} @{ $config->{js} },
-        );
-    }
-
+    $app->asset->process(
+      'materialdesign.js' => map {"/js/$_"} @{ $config->{js} }
+    );
 }
 
 1;
+
 __END__
 
 =encoding utf-8
